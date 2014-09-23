@@ -1,21 +1,13 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+(defvar clojure-minor-modes '(paredit-mode
+			      rainbow-delimiters-mode))
+(add-hook 'clojure-mode-hook 'cider-mode)
 
+;; mini bufferに関数の引数を表示させる
+;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
-(require 'cl)
+;; 'C-x b' した時に *nrepl-connection* と *nrepl-server* のbufferを一覧に表示しない
+(setq nrepl-hide-special-buffers t)
 
-(defvar installing-package-list
-  '(
-    ;; �����Ɏg���Ă���p�b�P�[�W�������B
-    yaml-mode
-    ))
-
-(let ((not-installed (loop for x in installing-package-list
-                            when (not (package-installed-p x))
-                            collect x)))
-  (when not-installed
-    (package-refresh-contents)
-    (dolist (pkg not-installed)
-        (package-install pkg))))
+;; RELPのbuffer名を 'project名:nREPLのport番号' と表示する
+;; project名は project.clj で defproject した名前
+(setq nrepl-buffer-name-show-port t)

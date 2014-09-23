@@ -1,3 +1,7 @@
+;; PATH¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+;; $SHELL¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+(add-to-list 'exec-path (expand-file-name "/usr/local/bin"))
+
 ;;; current line
 (global-hl-line-mode 1)
 
@@ -79,6 +83,8 @@
 (setq which-func-modes t)
 (delete (assoc 'which-func-mode mode-line-format) mode-line-format)
 (setq-default header-line-format '(which-func-mode ("" which-func-format)))
+
+
 
 ;;
 (require 'text-translator)
