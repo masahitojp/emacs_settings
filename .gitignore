@@ -25,3 +25,5 @@ abbrev_defs
 *.rel
 # AUCTeX auto folder
 /auto/
+
+places

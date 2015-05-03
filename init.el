@@ -16,6 +16,7 @@
     cider
     ac-nrepl
     clojure-cheatsheet
+    flycheck
     slamhound
     paredit
     markdown-mode
@@ -32,6 +33,7 @@
     tuareg
     js2-mode
     yasnippet
+    web-mode
     ))
 
 (let ((not-installed (loop for x in installing-package-list
@@ -44,7 +46,7 @@
 
 
 ;; load-path
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
 ;; init-loader の設定
 ;; http://coderepos.org/share/browser/lang/elisp/init-loader/init-loader.el
@@ -53,5 +55,5 @@
 (init-loader-load)
 
 ;; メニューバーを非表示
-(if (eq system-type 'darwin)
-    (ns-toggle-toolbar))
+;;(if (eq system-type 'darwin)
+;;    (ns-toggle-toolbar))
