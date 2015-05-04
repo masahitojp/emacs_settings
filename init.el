@@ -34,6 +34,7 @@
     js2-mode
     yasnippet
     web-mode
+    exec-path-from-shell
     ))
 
 (let ((not-installed (loop for x in installing-package-list
